@@ -9,12 +9,19 @@
 <body>
 	
 	<div id="game-container">
-		<canvas id="gc" class="game-canvas" width="400" height="400"></canvas>
-		
-		<button onclick="Snake.startGame()">START</button>
-		<button onclick="Snake.togglePause()">PAUSE</button>
 
-	</div>
+  <div class="screen">
+    <canvas id="gc" class="game-canvas" width="400" height="400"></canvas>
+
+    <div class="controls">
+      <button onclick="Snake.startGame()">START</button>
+      <button onclick="Snake.togglePause()">PAUSE</button>
+    </div>
+  </div>
+
+</div>
+
+
 	<div class="keys">
   		<button class="pad" onclick="Snake.action('up')">⬆</button><br>
   		<button class="pad" onclick="Snake.action('left')">⬅</button>
