@@ -142,7 +142,7 @@ var Snake = (function () {
     ctx.fillRect(food.x*TILE,food.y*TILE,38,38);
 
     // HUD background
-    ctx.fillStyle="rgba(0,0,0,0.5)";
+    ctx.fillStyle="rgba(0,0,0,0)";
     ctx.fillRect(0,0,400,50);
 
     // HUD text
