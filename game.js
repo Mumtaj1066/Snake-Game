@@ -13,6 +13,11 @@ var Snake = (function () {
   var restartTimer=5;
   var restartInterval=null;
 
+  // 🔔 HAPTIC
+  function vibrate(ms=30){
+    if(navigator.vibrate) navigator.vibrate(ms);
+  }
+
   function beep(f,t){
     if(!audio) audio=new(window.AudioContext||window.webkitAudioContext)();
     let o=audio.createOscillator(),g=audio.createGain();
@@ -29,12 +34,14 @@ var Snake = (function () {
   }
 
   function startGame(){
+    vibrate(40);
     if(started) return;
     started=true;
     reset();
   }
 
   function togglePause(){
+    vibrate(30);
     if(!started||gameOver)return;
     paused=!paused;
   }
@@ -42,6 +49,7 @@ var Snake = (function () {
   function reset(){
     clearInterval(loop);
     clearInterval(restartInterval);
+
     snake=[
       {x:5,y:5},
       {x:4,y:5},
@@ -67,6 +75,7 @@ var Snake = (function () {
     if([32,37,38,39,40].includes(e.keyCode)) e.preventDefault();
 
     if(e.keyCode===32){
+      vibrate(40);
       if(!started) startGame();
       else if(gameOver) reset();
     }
@@ -126,7 +135,10 @@ var Snake = (function () {
     snake.unshift(head);
 
     if(head.x===food.x&&head.y===food.y){
-      score++; beep(700,.1);
+      score++;
+      vibrate(25);           // food haptic
+      beep(700,.1);
+
       if(score%3===0){
         speed++;
         clearInterval(loop);
@@ -141,11 +153,6 @@ var Snake = (function () {
     ctx.fillStyle="red";
     ctx.fillRect(food.x*TILE,food.y*TILE,38,38);
 
-    // HUD background
-    ctx.fillStyle="rgba(0,0,0,0)";
-    ctx.fillRect(0,0,400,50);
-
-    // HUD text
     ctx.fillStyle="white";
     ctx.font="16px Arial";
     ctx.textAlign="left";
@@ -154,6 +161,7 @@ var Snake = (function () {
   }
 
   function die(){
+    vibrate([100,50,100]);   // GAME OVER haptic
     gameOver=true;
     explode(snake[0].x,snake[0].y);
     beep(150,.5);
@@ -191,6 +199,8 @@ var Snake = (function () {
     startGame(){startGame();},
     togglePause(){togglePause();},
     action(d){
+      vibrate(20);        // keypad haptic
+
       if(paused||gameOver)return;
       if(d==="left"&&dir.x!==1)dir={x:-1,y:0};
       if(d==="up"&&dir.y!==1)dir={x:0,y:-1};
