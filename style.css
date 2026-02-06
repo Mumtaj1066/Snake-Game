@@ -15,10 +15,13 @@ body {
   font-family: 'Lato', sans-serif;
   text-align: center;
   width: 100%;
-  padding: 10px;
+  padding: 10px 0;
   box-sizing: border-box;
-  height: 200px;
-  margin: auto;
+  margin: 0;
+}
+
+.keys {
+  margin-bottom: 0;
 }
 
 .keys {
