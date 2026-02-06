@@ -50,7 +50,7 @@ html, body {
 #game-container {
   display: flex;
   flex-direction: column;
-  background-color: rgba(59, 57, 57,);
+  background-color: rgba(49, 48, 48);
 }
 
 .game-canvas {
