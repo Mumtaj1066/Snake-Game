@@ -30,49 +30,79 @@ body {
   width: 70px;
   height: 70px;
   font-size: 30px;
+  font-weight: bold;
   margin: 5px;
   border-radius: 8px;
-  border: none;
+  border: 2px solid white;
   background: #000000;
   color: white;
 }
 
 .pad:active {
-  background: #333;
-}
-
-/* LOCK SCREEN */
-html, body {
-  overflow: hidden;
-  touch-action: none;
+  background: #000000;
 }
 
 #game-container {
   display: flex;
   flex-direction: column;
-  background-color: rgba(49, 48, 48);
-}
-
-.game-canvas {
-  display: block;
-  margin: auto;
+  background-color: #313131;
 }
 
 body {
   touch-action: none;
 }
 
-#game-container button {
-  width: 140px;
-  height: 45px;
-  margin: 6px auto;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  background: #000000;
-  color: white;
+/* Hide keypad on desktop / Windows */
+@media (min-width: 768px) {
+  .keys {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
 }
 
-#game-container button:active {
-  background:#222;
+.screen {
+  width: min(90vw, 400px);
+  margin: auto;
+  background: #222;
+  border: 6px solid rgb(0, 0, 0);
+  padding-bottom: 10px;
+}
+
+.game-canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 0;
+  padding-top: 10px;
+  border-top: 6px solid rgb(0, 0, 0);
+}
+
+
+/* buttons */
+#game-container button {
+  width: 100px;
+  height: 40px;
+  font-size: 14px;
+  border: 2px solid rgb(0, 0, 0);
+  background: rgb(0, 0, 0);
+  color: white;
+  font-weight: bold;
+}
+
+/* dark background */
+html, body {
+  background: #222;
 }
