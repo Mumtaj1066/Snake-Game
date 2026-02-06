@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+}
+
+.game-canvas {
+  width: 100%;
+  height: 100vw;
+  max-width: 500px;
+  max-height:500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.keys {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  height: 200px;
+  margin: auto;
+}
+
+.keys {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.pad {
+  width: 70px;
+  height: 70px;
+  font-size: 30px;
+  margin: 5px;
+  border-radius: 8px;
+  border: none;
+  background: #666;
+  color: white;
+}
+
+.pad:active {
+  background: #333;
+}
+
+/* LOCK SCREEN */
+html, body {
+  overflow: hidden;
+  touch-action: none;
+}
+
+#game-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(220, 220, 220, 0.6);
+}
+
+.game-canvas {
+  display: block;
+  margin: auto;
+}
+
+body {
+  touch-action: none;
+}
+
+#game-container button {
+  width: 140px;
+  height: 45px;
+  margin: 6px auto;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background: #444;
+  color: white;
+}
+
+#game-container button:active {
+  background:#222;
+}
